@@ -1,3 +1,8 @@
 packages:
   - 'packages/*'
   - 'examples/*'
+
+# pnpm settings live here rather than in `.npmrc`: npm does not understand them
+# and warns about "Unknown project config" on every command, including publish.
+autoInstallPeers: true
+strictPeerDependencies: false
