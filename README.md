@@ -1,5 +1,9 @@
 # web3-app-kit
 
+[![CI](https://github.com/martianacademy/web3-app-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/martianacademy/web3-app-kit/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](tsconfig.base.json)
+
 Open-source wallet connection SDK for **EVM, Solana and Bitcoin** — a headless
 core, a themeable modal, and React bindings. Built directly on
 [viem](https://viem.sh); no wagmi, no ethers, no vendor lock-in.
