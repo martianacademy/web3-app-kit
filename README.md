@@ -95,6 +95,38 @@ than one is connected.
   it. On phones it becomes a swipe-to-dismiss bottom sheet.
 - **Typed end to end**, ESM + CJS, tree-shakeable, SSR-safe.
 
+## Next.js and SSR
+
+The packages import cleanly on the server. `createConfig` and `createModal`
+touch no browser global until the modal is actually opened, so a provider at
+module scope in a `'use client'` file is fine:
+
+```tsx
+'use client'
+
+import { Web3AppKitProvider, createConfig, injected } from '@web3-app-kit/react'
+import { mainnet } from '@web3-app-kit/core/chains'
+import { http } from 'viem'
+
+const config = createConfig({
+  chains: [mainnet],
+  connectors: [injected()],
+  transports: { [mainnet.id]: http() },
+})
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return <Web3AppKitProvider config={config}>{children}</Web3AppKitProvider>
+}
+```
+
+Verified against Next.js 16 with the App Router and React 19: `next build`
+prerenders, and the modal mounts on the client.
+
+`@web3-app-kit/ui@0.1.0` and `@web3-app-kit/react@0.1.0` do **not** work here —
+they define a custom element at module scope, so importing them throws
+`ReferenceError: HTMLElement is not defined` and fails the build. Both are
+deprecated; use 0.1.1 or later.
+
 ## Install
 
 ```bash

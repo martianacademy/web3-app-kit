@@ -146,12 +146,13 @@ export type Modal = {
 
 const ELEMENT_NAME = 'w3ak-modal'
 
-class Web3AppKitModalElement extends HTMLElement {}
-
 function defineElement() {
   if (typeof customElements === 'undefined') return
-  if (!customElements.get(ELEMENT_NAME))
-    customElements.define(ELEMENT_NAME, Web3AppKitModalElement)
+  if (customElements.get(ELEMENT_NAME)) return
+  // Declared here rather than at module scope. `HTMLElement` does not exist on
+  // the server, and a class extending it is evaluated on import — which made
+  // simply importing this package crash any Next.js build.
+  customElements.define(ELEMENT_NAME, class extends HTMLElement {})
 }
 
 export function createModal(parameters: CreateModalParameters): Modal {
@@ -183,7 +184,7 @@ export function createModal(parameters: CreateModalParameters): Modal {
   let shouldAnimate = false
   /** Previous view, so a change can be animated in the direction it travelled. */
   let lastView: ModalView | undefined
-  let host: Web3AppKitModalElement | undefined
+  let host: HTMLElement | undefined
   let root: ShadowRoot | undefined
   let body: HTMLDivElement | undefined
   let previouslyFocused: Element | null = null
@@ -205,7 +206,7 @@ export function createModal(parameters: CreateModalParameters): Modal {
     if (host || typeof document === 'undefined') return
     defineElement()
 
-    host = document.createElement(ELEMENT_NAME) as Web3AppKitModalElement
+    host = document.createElement(ELEMENT_NAME)
     host.setAttribute('data-theme', parameters.themeMode ?? 'auto')
     if (parameters.chainIconShape && parameters.chainIconShape !== 'hexagon')
       host.setAttribute('chain-shape', parameters.chainIconShape)
