@@ -5,6 +5,8 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](tsconfig.base.json)
 [![npm](https://img.shields.io/npm/v/@web3-app-kit/core.svg?label=%40web3-app-kit%2Fcore)](https://www.npmjs.com/package/@web3-app-kit/core)
 
+**[Live demo →](https://web3-app-kit.vercel.app)**
+
 Open-source wallet connection SDK for **EVM, Solana and Bitcoin** — a headless
 core, a themeable modal, and React bindings. Built directly on
 [viem](https://viem.sh); no wagmi, no ethers, no vendor lock-in.
