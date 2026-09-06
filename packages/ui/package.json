@@ -3,6 +3,18 @@
   "version": "0.1.0",
   "description": "Zero-dependency, themeable wallet connection modal with chain logos, built as a web component.",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martianacademy/web3-app-kit.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://github.com/martianacademy/web3-app-kit/tree/main/packages/ui#readme",
+  "bugs": {
+    "url": "https://github.com/martianacademy/web3-app-kit/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.cjs",

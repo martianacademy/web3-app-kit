@@ -3,6 +3,18 @@
   "version": "0.1.0",
   "description": "Metadata, RPC endpoints and logos for every EVM chain, generated from ethereum-lists/chains.",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martianacademy/web3-app-kit.git",
+    "directory": "packages/chains"
+  },
+  "homepage": "https://github.com/martianacademy/web3-app-kit/tree/main/packages/chains#readme",
+  "bugs": {
+    "url": "https://github.com/martianacademy/web3-app-kit/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.cjs",
