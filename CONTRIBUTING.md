@@ -44,6 +44,28 @@ CI runs exactly this on Node 18 and 22, plus a typecheck of the example.
 out wrong is usually fixed with an entry in `ICON_OVERRIDES` rather than a code
 change; the example app's "Logo audit" card exists to eyeball the result.
 
+## Releasing
+
+Tag a version and push it; `.github/workflows/release.yml` does the rest.
+
+```bash
+git tag v0.1.1 && git push origin v0.1.1
+```
+
+Publishing is split on purpose: pnpm packs, npm publishes. `npm pack` would
+leave `workspace:*` in the dependency ranges, which cannot be installed, and
+`pnpm publish` does not do the OIDC exchange that lets the workflow publish
+without a token. A guard step fails the release if a workspace protocol
+survives into a tarball.
+
+Publishing by hand, if you must, goes through pnpm from the root — never
+`npm publish` inside a package directory, which is how
+`@web3-app-kit/swap@0.1.0` shipped broken and had to be deprecated:
+
+```bash
+pnpm -r --filter "./packages/*" publish --access public
+```
+
 ## Licensing
 
 The project is MIT, and contributions are taken under MIT.
