@@ -3,6 +3,7 @@
 [![CI](https://github.com/martianacademy/web3-app-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/martianacademy/web3-app-kit/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](tsconfig.base.json)
+[![npm](https://img.shields.io/npm/v/@web3-app-kit/core.svg?label=%40web3-app-kit%2Fcore)](https://www.npmjs.com/package/@web3-app-kit/core)
 
 Open-source wallet connection SDK for **EVM, Solana and Bitcoin** — a headless
 core, a themeable modal, and React bindings. Built directly on
