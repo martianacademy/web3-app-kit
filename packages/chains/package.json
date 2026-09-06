@@ -1,0 +1,45 @@
+{
+  "name": "@web3-app-kit/chains",
+  "version": "0.1.0",
+  "description": "Metadata, RPC endpoints and logos for every EVM chain, generated from ethereum-lists/chains.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "generate": "node scripts/generate.mjs"
+  },
+  "peerDependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4",
+    "viem": "^2.21.0"
+  },
+  "keywords": [
+    "evm",
+    "chains",
+    "chainlist",
+    "chain-id",
+    "rpc",
+    "logos",
+    "ethereum"
+  ]
+}

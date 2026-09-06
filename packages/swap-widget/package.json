@@ -1,0 +1,48 @@
+{
+  "name": "@web3-app-kit/swap-widget",
+  "version": "0.1.0",
+  "description": "DODO's swap widget, wired to a web3-app-kit connection. GPL-3.0 \u2014 opt in deliberately.",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@web3-app-kit/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@dodoex/widgets": ">=3",
+    "react": ">=18",
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.17",
+    "react": "^18.3.1",
+    "viem": "^2.21.0"
+  },
+  "keywords": [
+    "web3",
+    "swap",
+    "dodo",
+    "widget",
+    "evm"
+  ]
+}

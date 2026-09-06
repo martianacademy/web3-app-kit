@@ -1,0 +1,65 @@
+{
+  "name": "@web3-app-kit/core",
+  "version": "0.1.0",
+  "description": "Headless, framework-agnostic wallet connection core for EVM dApps. Built on viem.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./connectors": {
+      "types": "./dist/connectors/index.d.ts",
+      "import": "./dist/connectors/index.js",
+      "require": "./dist/connectors/index.cjs"
+    },
+    "./chains": {
+      "types": "./dist/chains.d.ts",
+      "import": "./dist/chains.js",
+      "require": "./dist/chains.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@coinbase/wallet-sdk": ">=4",
+    "@walletconnect/ethereum-provider": ">=2.17",
+    "viem": "^2.21.0"
+  },
+  "peerDependenciesMeta": {
+    "@coinbase/wallet-sdk": {
+      "optional": true
+    },
+    "@walletconnect/ethereum-provider": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@coinbase/wallet-sdk": "^4.3.0",
+    "@walletconnect/ethereum-provider": "^2.17.2",
+    "viem": "^2.21.0"
+  },
+  "keywords": [
+    "web3",
+    "ethereum",
+    "evm",
+    "wallet",
+    "viem",
+    "eip-6963",
+    "walletconnect"
+  ]
+}
